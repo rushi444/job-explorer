@@ -9,7 +9,9 @@ export const getAllJobs = () => dispatch => {
     type: GET_ALL_JOBS_FETCHING,
   });
   axios
-    .get('https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json')
+    .get(
+      'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json',
+    )
     .then(res => {
       dispatch({
         type: GET_ALL_JOBS_SUCCESS,
@@ -19,6 +21,32 @@ export const getAllJobs = () => dispatch => {
     .catch(err => {
       dispatch({
         type: GET_ALL_JOBS_FAILURE,
+        payload: err,
+      });
+    });
+};
+
+export const SEARCH_JOBS_FETCHING = 'SEARCH_JOBS_FETCHING';
+export const SEARCH_JOBS_SUCCESS = 'SEARCH_JOBS_SUCCESS';
+export const SEARCH_JOBS_FAILURE = 'SEARCH_JOBS_FAILURE';
+
+export const searchJobs = searchParam => dispatch => {
+  dispatch({
+    type: SEARCH_JOBS_FETCHING,
+  });
+  axios
+    .get(
+      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?search=${searchParam}`,
+    )
+    .then(res => {
+      dispatch({
+        type: SEARCH_JOBS_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SEARCH_JOBS_FAILURE,
         payload: err,
       });
     });
