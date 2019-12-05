@@ -5,11 +5,15 @@ class Job extends Component {
     let content = this.props.job.description;
     return { __html: content };
   }
+
+  routeToApply = () => {
+    window.location.href = this.props.job.url
+  }
   render() {
     const dateArray = this.props.job.created_at.split(' ');
     console.log(this.props.job);
     return (
-      <div>
+      <div className='individualJob'>
         <div className='jobTitleAndLocation'>
           <div className='title'>
             <h3>{this.props.job.title}</h3>
@@ -23,6 +27,7 @@ class Job extends Component {
             <h5>{this.props.job.company}</h5>
             <h5>{this.props.job.type}</h5>
             <h5>Posted On: {`${dateArray[1]} ${dateArray[2]}`}</h5>
+            <button className='searchSubmit' onClick={this.routeToApply}>Apply</button>
           </div>
           <div className='dangerousDescription'>
             <p className='dangerous' dangerouslySetInnerHTML={this.rawMarkup()} />

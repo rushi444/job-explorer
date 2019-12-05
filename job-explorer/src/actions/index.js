@@ -51,3 +51,40 @@ export const searchJobs = searchParam => dispatch => {
       });
     });
 };
+
+export const CHANGE_PAGE_FETCHING = 'CHANGE_PAGE_FETCHING';
+export const CHANGE_PAGE_SUCCESS = 'CHANGE_PAGE_SUCCESS';
+export const CHANGE_PAGE_FAILURE = 'CHANGE_PAGE_FAILURE';
+
+export const changePage = (pageNum, type, search) => dispatch => {
+  dispatch({
+    type: CHANGE_PAGE_FETCHING,
+  });
+
+  let temp = null; 
+
+  if(type === 'add') {
+    temp = pageNum + 1
+  } else {
+    temp = pageNum - 1 
+  }
+
+  axios
+    .get(
+      search !== ''
+        ? `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${temp}&search=${search}`
+        : `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=${temp}`,
+    )
+    .then(res => {
+      dispatch({
+        type: CHANGE_PAGE_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: CHANGE_PAGE_FAILURE,
+        payload: err,
+      });
+    });
+};

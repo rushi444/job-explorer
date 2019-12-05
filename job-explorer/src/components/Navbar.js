@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import telescope from '../assets/telescope.jpg'
 
 export class Navbar extends Component {
     render() {
         return (
-            <div>
-                <h1>Job Explorer</h1>
+            <div className='navbar'>
+                <h1 id='navbarTitle'>Job Explorer <img src={telescope} alt='telescope' /> </h1>
             </div>
         )
     }

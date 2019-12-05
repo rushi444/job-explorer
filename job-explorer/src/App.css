@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
 .App {
   text-align: center;
   width: 100%;
-  margin: auto; 
+  margin: auto;
 }
 
 .App-header {
@@ -22,15 +24,13 @@
 .dashboardContainer {
   display: inline-flex;
   width: 100%;
-  margin: auto; 
 }
-
-
 
 .jobsContainer {
   height: 90vh;
   width: 85%;
-  margin: auto; 
+  margin: auto;
+  margin-bottom: 5vh;
 }
 
 .jobTitleAndLocation {
@@ -60,11 +60,86 @@
 
 .dangerousDescription {
   width: 80%;
-  height: 40vh; 
-  overflow: auto;
+  height: 40vh;
+  overflow-y: scroll;
+  text-align: left; 
 }
 
+.dangerousDescription::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dangerousDescription::-webkit-scrollbar-track {
+  box-shadow: #389FD9;
+  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.dangerousDescription::-webkit-scrollbar-thumb {
+  box-shadow: #389FD9;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 15px #389FD9; 
+}
+​
+
 .dangerous {
-  font-size: 1rem;
+  font-size: .8rem;
   text-align: left;
+}
+
+.pathButtons {
+  margin: 10px;
+}
+
+#navbarTitle {
+  font-family: 'Bebas Neue';
+  font-size: 3rem;
+  text-align: left;
+  margin-left: 5%;
+  color: #389FD9;
+}
+
+.searchBar {
+  width: 40%; 
+  border-color: #389FD9;  
+  border-top: none; 
+  border-left: none; 
+  border-right: none; 
+  border-width: 1px;
+  margin-right: 2%
+}
+
+.searchSubmit {
+  background-color:#389FD9 ; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; 
+  border-radius: 3px;
+}
+
+.prevAndNext {
+  background-color:#389FD9 ; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px; 
+  border-radius: 3px;
+  margin-left: 2.5%; 
+  margin-right: 2.5%;
+  width: 80px; 
+}
+
+.individualJob {
+  margin-top: 2%; 
+  padding-left: 3%;
+  padding-bottom: 2%; 
+  border-bottom: 1px solid #389FD9; 
+  border-radius: 1px; 
 }
