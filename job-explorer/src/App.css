@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  width: 100%;
 }
 
 .App-header {
@@ -28,11 +18,45 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dashboardContainer {
+  display: inline-flex;
+  width: 100%;
+}
+
+.marketMetricsContainer {
+  width: 49%;
+}
+
+.jobsContainer {
+  height: 80vh;
+  width: 49%;
+  overflow: auto;
+}
+
+.jobTitleAndLocation {
+  display: inline-flex;
+  width: 100%;
+}
+
+.title {
+  width: 45%;
+}
+
+.location {
+  width: 45%;
+}
+
+.jobSplit {
+  display: inline-flex;
+  width: 100%;
+}
+
+.companyAndType {
+  width: 40%;
+}
+
+.dangerousDescription {
+  width: 40%;
+  height: 100%; 
+  overflow: auto;
 }
