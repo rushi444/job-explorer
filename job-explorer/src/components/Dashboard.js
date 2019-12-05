@@ -37,7 +37,7 @@ export class Dashboard extends Component {
   pageSubmitPrevious = e => {
     e.preventDefault();
     this.setState({ page: this.state.page - 1 });
-    changePage(this.state.page, this.state.searchText);
+    changePage(this.state.page,'dec', this.state.searchText);
   };
 
   render() {
