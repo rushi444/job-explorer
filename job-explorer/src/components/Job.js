@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 export class Job extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
-                <h1>Jobs</h1>
+                <h3>{this.props.job.company}</h3>
             </div>
         )
     }

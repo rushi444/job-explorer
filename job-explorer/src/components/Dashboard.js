@@ -7,14 +7,20 @@ export class Dashboard extends Component {
   componentDidMount() {
     this.props.getAllJobs();
   }
-  render() {
-      console.log('dash state',this.state)
-    return <div></div>;
+
+ 
+  render() { 
+    return <div>
+        <h1>dashboard</h1>
+        {this.props.jobs && this.props.jobs.map(job => (
+            <Job job={job} key={job.id}/>
+        ))}
+    </div>;
   }
 }
 
 const mapStateToProps = state => ({
-  jobs: state.getAllJobsReducer,
+  jobs: state.getAllJobsReducer.jobs,
 });
 
 export default connect(mapStateToProps, { getAllJobs })(Dashboard);

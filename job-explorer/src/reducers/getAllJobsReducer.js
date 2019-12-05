@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  jobs: [],
+  jobs: null,
   fetchingJobs: false,
   fetchingJobsError: null,
 };
