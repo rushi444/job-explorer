@@ -17,7 +17,7 @@ export class Dashboard extends Component {
   onSubmit = e => {
     e.preventDefault();
     if (this.state.text === '') {
-      this.props.getAllJobs()
+      this.props.getAllJobs();
     } else {
       this.props.searchJobs(this.state.text);
       this.setState({ text: '' });
@@ -37,36 +37,44 @@ export class Dashboard extends Component {
   pageSubmitPrevious = e => {
     e.preventDefault();
     this.setState({ page: this.state.page - 1 });
-    changePage(this.state.page,'dec', this.state.searchText);
+    changePage(this.state.page, 'dec', this.state.searchText);
   };
 
   render() {
     if (this.props.isFetching === true) {
       return <ClipLoader />;
     } else {
-    return (
-      <div className='dashboardContainer'>
-        <div className='jobsContainer'>
-          <form onSubmit={this.onSubmit}>
-            <input className='searchBar'
-              type='text'
-              name='text'
-              placeholder='search here...'
-              value={this.state.text}
-              onChange={this.onChange}
-            />
-            <button className='searchSubmit' onClick={this.onSubmit}>Submit</button>
-          </form>
-          {this.props.jobs &&
-            this.props.jobs.map(job => <Job job={job} key={job.id} />)}
-          <div className='pathButtons'>
-            <button className='prevAndNext' onClick={this.pageSubmitPrevious}>Previous</button>
-            
-            <button className='prevAndNext' onClick={this.pageSubmitNext}>Next</button>
+      return (
+        <div className='dashboardContainer'>
+          <div className='jobsContainer'>
+            <form onSubmit={this.onSubmit}>
+              <input
+                className='searchBar'
+                type='text'
+                name='text'
+                placeholder='search here...'
+                value={this.state.text}
+                onChange={this.onChange}
+              />
+              <button className='searchSubmit' onClick={this.onSubmit}>
+                Submit
+              </button>
+            </form>
+            {this.props.jobs &&
+              this.props.jobs.map(job => <Job job={job} key={job.id} />)}
+            <div className='pathButtons'>
+              <button className='prevAndNext' onClick={this.pageSubmitPrevious}>
+                Previous
+              </button>
+
+              <button className='prevAndNext' onClick={this.pageSubmitNext}>
+                Next
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    )};
+      );
+    }
   }
 }
 
